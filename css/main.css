@@ -1,0 +1,531 @@
+@charset "utf-8";
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    /*높이값 보이는 화면기준*/
+    overflow: hidden;
+}
+
+/*전체 페이지부모(스크롤박스역할)*/
+.wrap {
+    width: 100%;
+    height: 100%;
+    /*높이값 보이는 화면기준*/
+    /*
+            overflow-x: hidden;
+            overflow-y: scroll;
+*/
+}
+
+/*공통셋팅*/
+a {
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 0 0 2px #777;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul::after {
+    content: "";
+    display: block;
+    clear: both;
+    /*float해제*/
+}
+
+li {
+    float: left;
+    /*옆으로 흐르게*/
+}
+
+img {
+    border: none;
+    /*이미지 링크시 테두리없앰*/
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    /*16px기준*/
+}
+
+
+/*공통 class*/
+.page {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/*IR 업데이트*/
+.bld {
+    display: block;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+}
+
+/*상단영역*/
+.top {
+    position: fixed;
+    /*상단고정*/
+    width: 100%;
+    z-index: 9999;
+    /*맨위로!*/
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.inbox {
+    position: relative;
+    /*부모자격*/
+    width: 1920px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+#top {
+    height: 80px;
+}
+
+/*로고*/
+#logo {
+    width: 250px;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+    /*넘치는자식숨김*/
+}
+
+#logo img {
+    width: 100%;
+    margin-top: -24px;
+}
+
+/*GNB메뉴*/
+.gnb {
+    position: absolute;
+    /*부모? #top*/
+    top: 40px;
+    right: 2%;
+}
+
+.gnb li {
+    margin: 0 7px;
+}
+
+/*메뉴에 마우스 오버시*/
+.gnb a:hover {
+    color: lime;
+    text-decoration: overline;
+}
+
+.gnb li:hover {
+    transform: scale(1.1);
+}
+
+/*선택된 메뉴 class*/
+.gnb li.on a {
+    color: lime;
+    text-decoration: overline;
+}
+
+.gnb li.on {
+    transform: scale(1.1);
+}
+
+
+/*개별페이지셋팅*/
+#pg1 {
+    background: #2f2f2f url(../images/cover.jpg) no-repeat center/130%;
+}
+
+.ratio::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32%;
+    background-color: #f2f2f2;
+}
+
+.screen:before {
+    padding-top: 55%;
+}
+
+.screen-video {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: none;
+}
+
+.play-btnbox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20%;
+    display: none;
+}
+
+.play-btnbox img {
+    width: 100%;
+}
+
+.mute-btnbox {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    width: 5%;
+    display: none;
+}
+
+.mute-btnbox img {
+    width: 100%;
+}
+
+.play-bar {
+    position: absolute;
+    bottom: 3px;
+    width: 100%;
+    height: 6px;
+    background-color: hsla(0, 0%, 95%, 0.7);
+    transform: scaleY(.5);
+    transition: .3s;
+    display: none;
+}
+
+.play-bar:hover {
+    transform: scaleY(1);
+}
+
+.track-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #9c27ff;
+}
+
+.track-bar::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    right: -5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #9c27ff;
+    transform: scale(0);
+    opacity: 0;
+    transition: .1s;
+}
+
+.play-bar:hover .track-bar::after {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* 비디오 시간표시 */
+.cTime {
+    position: absolute;
+    bottom: 15px;
+    right: 5px;
+    font: 10px Verdana;
+    color: #fff;
+    text-shadow: 0 0 5px #777;
+    display: none;
+}
+
+/*확장버튼*/
+.expand {
+    position: absolute;
+    bottom: 10px;
+    left: 5px;
+    font: 16px Verdana;
+    color: #CCC;
+    text-shadow: 0 0 2px #777;
+    display: none;
+}
+
+/*볼륨버튼*/
+.volume {
+    position: absolute;
+    bottom: 17px;
+    left: 25px;
+    width: 60px;
+    height: 1px;
+    background-color: #fff;
+    display: none;
+}
+
+#bar {
+    position: relative;
+    display: block;
+    width: 6px;
+    height: 11px;
+    background-color: #f2f2f2;
+    margin-top: -6px;
+}
+
+.gallbox {
+    /*display: none;*/
+    position: absolute;
+    /*position standard*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20%;
+    margin: 0 auto;
+    cursor: pointer;
+    /*outline: 1px solid red;*/
+}
+
+.gallbox img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 6px 6px 5px #333;
+    transition: all .4s ease-in-out;
+}
+
+.gallbox img:nth-child(1) {
+    top: -40%;
+    left: -210%;
+    transform: scale(.7);
+    opacity: 0;
+}
+
+.gallbox img:nth-child(2) {
+    top: -20%;
+    left: -110%;
+    transform: scale(.9);
+    /*filter: grayscale(50%) blur(2px);*/
+}
+
+.gallbox img:nth-child(3) {
+    top: 0;
+    left: 0;
+    transform: scale(1);
+}
+
+.gallbox img:nth-child(4) {
+    top: -20%;
+    left: 110%;
+    transform: scale(.9);
+    /*filter: grayscale(50%) blur(2px);*/
+}
+
+.gallbox img:nth-child(5) {
+    top: -40%;
+    left: 210%;
+    transform: scale(.7);
+    opacity: 0;
+}
+
+.btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4%;
+}
+
+.btn img {
+    width: 100%;
+}
+
+.left {
+    left: 10%;
+}
+
+.right {
+    right: 10%;
+}
+
+#pg2 {
+    background: url(../images/cover2.jpg) no-repeat top/cover;
+}
+
+#pg3 {
+    background: url(../images/cover3.jpg) no-repeat top/cover;
+}
+
+#pg4 {
+    background: url(../images/cover4.jpg) no-repeat top/cover;
+}
+
+/*블릿 네비게이션*/
+.bnav {
+    position: fixed;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    /*세로중앙이동*/
+    width: 15px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.bnav li {
+    position: relative;
+    width: 100%;
+    height: 15px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin: 6px 0;
+}
+
+/*선택네비 class*/
+.bnav li.on {
+    background-color: #EC686A;
+    transform: scale(1.15);
+}
+
+/*블릿a링크*/
+.bnav a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/*블릿글자*/
+.bnav span {
+    position: absolute;
+    top: -50%;
+    right: 200%;
+    white-space: nowrap;
+    font: bold .9rem "맑은 고딕", Verdana;
+    text-shadow: 1px 0 #000, -1px 0 #000,
+        0 1px #000, 0 -1px #000;
+    display: none;
+    /*글자숨기기*/
+}
+
+/*마우스 오버시 글자보이기*/
+.bnav li:hover span {
+    display: block;
+}
+
+/*선택메뉴 글자보이기*/
+.bnav li.on span {
+    display: block;
+}
+
+.disabledrag {
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-drag: none;
+    -o-user-drag: none;
+    user-select: none;
+}
+
+.disableseclect {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.type-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 620px;
+    height: 300px;
+    font: bold 20px/50px "나눔 고딕";
+    color: #f2f2f2;
+    padding: 20px;
+}
+
+.type-wrap::first-line {
+    color: paleturquoise;
+    font-size: 40px;
+    line-height: 100%;
+}
+
+.swiper-container {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 250px;
+    height: 370px;
+}
+
+.swiper-slide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+}
+
+#gallery{
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    text-align: center;
+}
+
+#gallery img {
+    height: 100px;
+    transition: .4s ease-out;
+    margin: 0 10px;
+    border: 10px solid #f2f2f2;
+    border-radius: 7px;
+    background-color: #f2f2f2;
+}
+
+#gallery img:hover {
+    transform: scale(1.2);
+    z-index: 1
+}
+
+#comment {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    font:  bold 2rem "SF Pro Display";
+    color: #f2f2f2;
+}
+
+#comment > .sc {
+    margin-right: 10px;
+}
+
+#comment > .sp {
+    clear: left;
+}
+
+#comment > li {
+    position: relative;
+    top: -100px;
+    left: 200px;
+    opacity: 0;
+}

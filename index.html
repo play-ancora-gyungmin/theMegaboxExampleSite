@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Megabox PJ</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/photobox.css">
+    <script src="js/jquery-3.5.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/typed.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/jquery.photobox.js"></script>
+    <script src="js/autoScroll.js"></script>
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+    <!--상단영역-->
+    <div class="top">
+        <header class="inbox" id="top">
+            <!--로고-->
+            <h1 id="logo">
+                <a href="#">
+                    <img src="images/logo.png" alt="메가박스로고">
+                </a>
+            </h1>
+            <!--GNB메뉴-->
+            <nav class="gnb">
+                <ul>
+                    <li class="on">
+                        <a href="#pg1">영화</a>
+                    </li>
+                    <li>
+                        <a href="#pg2">큐레이션</a>
+                    </li>
+                    <li>
+                        <a href="#pg3">영화관</a>
+                    </li>
+                    <li>
+                        <a href="#pg4">특별관</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <!--페이지 섹션-->
+    <div class="wrap">
+        <section id="pg1" class="page">
+            <div class="screen ratio">
+                <video class="screen-video" src="./mv/mv1.mp4"></video>
+                <div class="play-btnbox control">
+                    <a class="play" href="#">
+                        <img class= "disabledrag disableseclect" src="images/vbt1.png" alt="재생버튼">
+                    </a>
+                </div>
+                <div class="mute-btnbox control disabledrag">
+                    <a class="mute" href="#">
+                        <img class= "disabledrag disableseclect" src="images/speaker_blue.png" alt="소리버튼">
+                    </a>
+                </div>
+                <div class="play-bar control">
+                    <div class="track-bar"></div>
+                </div>
+                <!--동영상 전체시간, 현재진행시간표시-->
+                <div class="cTime control">
+                    <span class="current">01:20</span> / 
+                    <span class="duration">03:50</span>
+                </div>
+                
+                <!--확대버튼-->
+                <div class="expand control">
+                    <a href="#" title="화면확대하기">▣</a>
+                </div>
+                
+                <!--볼륨버튼-->
+                <div class="volume control">
+                    <span id="bar"></span>
+                </div>
+            </div>
+            <div class="gallbox ratio">
+                <img src="images/cast01.jpg" alt="" data-vc="mv1">
+                <img src="images/cast02.jpg" alt="" data-vc="mv2">
+                <img src="images/cast03.jpg" alt="" data-vc="mv3">
+                <img src="images/cast04.jpg" alt="" data-vc="mv4">
+                <img src="images/cast05.jpg" alt="" data-vc="mv5">
+            </div>
+            <a class="btn left" href="#">
+                <img src="./images/left_btn.png" alt="">
+            </a>
+            <a class="btn right" href="#">
+                <img src="./images/right_btn.png" alt="">
+            </a>
+        </section>
+        <section id="pg2" class="page">
+            <div class="type-wrap">
+                <span id="typed" style="white-space: pre"></span>
+            </div>
+        </section>
+        <section id="pg3" class="page">
+            <div class="swiper-container">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide"><img src="c_imgs/mv1.jpg" alt="movie1"></li>
+                    <li class="swiper-slide"><img src="c_imgs/mv2.jpg" alt="movie2"></li>
+                    <li class="swiper-slide"><img src="c_imgs/mv3.jpg" alt="movie3"></li>
+                    <li class="swiper-slide"><img src="c_imgs/mv4.jpg" alt="movie4"></li>
+                    <li class="swiper-slide"><img src="c_imgs/mv5.jpg" alt="movie5"></li>
+                    <li class="swiper-slide"><img src="c_imgs/mv6.jpg" alt="movie6"></li>
+                    <li class="swiper-slide"><img src="c_imgs/mv7.jpg" alt="movie7"></li>
+                    <li class="swiper-slide"><img src="c_imgs/mv8.jpg" alt="movie8"></li>
+                    <li class="swiper-slide"><img src="c_imgs/mv9.jpg" alt="movie9"></li>
+                    <li class="swiper-slide"><img src="c_imgs/mv10.jpg" alt="movie10"></li>
+                </ul>
+            <div class="swiper-pagination"></div>
+            </div>
+        </section>
+        <section id="pg4" class="page">
+            <ul id="comment">
+                <li>새</li>
+                <li>로</li>
+                <li>운</li>
+                <li class="sp">영</li>
+                <li class="sc">화</li>
+                <li>경</li>
+                <li>험</li>
+                <li>을</li>
+                <li class="sp">위</li>
+                <li>한</li>
+                <li class="sp">특</li>
+                <li>별</li>
+                <li>관</li>
+            </ul>
+            <div id="gallery">
+                <a href="images/boutique_03.jpg">
+                    <img src="images/boutique_03.jpg" alt="부띠끄">
+                </a>
+                <a href="images/boutique_05.jpg">
+                    <img src="images/boutique_05.jpg" alt="부띠끄">
+                </a>
+                <a href="images/boutique_06.jpg">
+                    <img src="images/boutique_06.jpg" alt="부띠끄">
+                </a>
+                <a href="images/boutique_08.jpg">
+                    <img src="images/boutique_08.jpg" alt="부띠끄">
+                </a>
+                <a href="images/boutique_10.jpg">
+                    <img src="images/boutique_10.jpg" alt="부띠끄">
+                </a>
+                <a href="images/comfort.png">
+                    <img src="images/comfort.png" alt="컴포트">
+                </a>
+                <a href="images/kids.png">
+                    <img src="images/kids.png" alt="키즈">
+                </a>
+                <a href="images/mx.jpg">
+                    <img src="images/mx.jpg" alt="MX">
+                </a>
+                <a href="https://www.youtube.com/embed/91BUM3WhCfo" rel="video">
+                    <img src="images/boutique_mv_cover.jpg" alt="돌비 애트모스">
+                </a>
+            </div>
+        </section>
+    </div>
+
+
+    <!--블릿네비게이션-->
+    <ol class="bnav">
+        <li class="on">
+            <a href="#pg1"><span>영화</span></a>
+        </li>
+        <li>
+            <a href="#pg2"><span>큐레이션</span></a>
+        </li>
+        <li>
+            <a href="#pg3"><span>영화관</span></a>
+        </li>
+        <li>
+            <a href="#pg4"><span>특별관</span></a>
+        </li>
+    </ol>
+
+
+
+
+
+
+
+</body></html>
